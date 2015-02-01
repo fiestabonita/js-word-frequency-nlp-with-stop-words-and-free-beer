@@ -6,9 +6,13 @@ Accepts input string, cleans it up, then outputs a list of meaningful words with
 
 Example usage:
 ```
-words = $('.entry .usertext-body .md p').map(function(i, el) {
-    return $(el).text().replace(/[^a-zA-Z 0-9]/g, ' ')
+mywords = $('.entry .usertext-body .md p').map(function(i, el) {
+    return $(el).text()
 }).get();
-getWordFrequencies(words.join(' '), 'asc')
-console.log('Heck yes!')
+
+words = wordfreq(mywords.join(' '));
+
+for (var i=words.length-1; i>=0; --i) {
+	console.log(words[i].frequency, words[i].text);
+}
 ```
